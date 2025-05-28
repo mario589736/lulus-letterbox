@@ -2,12 +2,14 @@ import Head from 'next/head';
 import { SEOProps } from '@/types';
 
 interface SEOHeadProps extends SEOProps {
+  keywords?: string;
   children?: React.ReactNode;
 }
 
 export default function SEOHead({
   title,
   description,
+  keywords,
   image = 'https://picsum.photos/1200/630?random=lulu',
   url = 'https://lulus-letterbox.de',
   type = 'website',
@@ -15,6 +17,7 @@ export default function SEOHead({
   children,
 }: SEOHeadProps) {
   const fullTitle = title.includes('|') ? title : `${title} | Lulu's Letterbox`;
+  const defaultKeywords = "Toilettentraining, Postkarten, Kinder, Meilensteine, personalisiert, Deutschland, Österreich";
 
   return (
     <Head>
@@ -44,7 +47,7 @@ export default function SEOHead({
       {/* Additional tags */}
       <meta name="robots" content="index, follow" />
       <meta name="author" content="Lulu's Letterbox" />
-      <meta name="keywords" content="Toilettentraining, Postkarten, Kinder, Meilensteine, personalisiert, Deutschland, Österreich" />
+      <meta name="keywords" content={keywords || defaultKeywords} />
       <link rel="canonical" href={url} />
 
       {children}

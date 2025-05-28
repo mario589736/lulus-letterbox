@@ -1,0 +1,58 @@
+Here are key user stories focused on design & UX—all assuming a Tailwind CSS–based frontend that’s bright, playful, and parent-friendly, yet still performant and accessible.
+
+1. Responsive, Mobile-First Onboarding
+As a busy parent
+I want a one-page, mobile-optimized sign-up flow with clear progress indicators (e.g. “Step 1 of 3”)
+so that I can create my child’s profile quickly on my phone while holding my toddler.
+
+Tailwind cues: use max-w-md mx-auto for central form, space-y-6 for vertical rhythm, progress bar styled via bg-blue-200 rounded-full and bg-blue-500 inner width.
+
+2. Engaging Theme Selector
+As a parent
+I want to preview and apply a “theme” (e.g. dinos, fairies, space) via a horizontal carousel of cards
+so that I can visually choose my child’s favorite motif before placing an order.
+
+Tailwind cues: horizontal scroll with flex overflow-x-auto space-x-4, each card w-40 h-52 bg-white shadow-lg rounded-2xl p-4 hover:scale-105 transition.
+
+3. Live Postcard Preview
+As a parent
+I want to see a live-rendered postcard mockup (front and back) update instantly as I type my child’s name and milestone text
+so that I feel confident the design and copy are correct before printing.
+
+Tailwind cues: side-by-side panes in desktop (md:flex md:space-x-8), each “card” container bg-gray-50 border border-gray-200 rounded-lg p-6, input fields styled with form-input utilities.
+
+4. Intuitive Milestone Calendar
+As a parent
+I want a visual calendar view of scheduled mail-drops (with icons for each milestone)
+so that I can understand at a glance what’s coming and when.
+
+Tailwind cues: grid calendar with grid grid-cols-7 gap-2, day cells p-2 rounded-md hover:bg-blue-100, event dots styled via w-2 h-2 rounded-full bg-green-500.
+
+5. Accessible, High-Contrast Typography
+As a parent
+I want legible text with large font sizes, generous line-height, and clear contrast
+so that I can read form labels and card previews easily under any lighting.
+
+Tailwind cues: headings text-2xl font-semibold text-gray-800, body copy text-base leading-relaxed text-gray-700, ensure contrast-ratio ≥4.5:1.
+
+6. Feedback Toasts & Micro-interactions
+As a parent
+I want lightweight, non-blocking confirmations (toasts) when I save settings or approve a postcard
+so that I know my actions succeeded without losing context.
+
+Tailwind cues: toast container fixed top-4 right-4 space-y-2, each toast bg-green-100 border-l-4 border-green-500 p-4 rounded shadow, dismiss on timeout.
+
+7. Dark-Mode Support
+As a parent
+I want an optional dark theme (for late-night checks) that automatically syncs with my system preference
+so that the UI is comfortable on my eyes when it’s dark.
+
+Tailwind cues: configure dark: variants for bg-white dark:bg-gray-800, text-gray-800 dark:text-gray-100, toggle switch styled with form-toggle utilities.
+
+8. Performance-First Delivery
+As a parent
+I want pages to load instantly and animations to feel snappy
+so that I can breeze through setup and not worry about lag (especially on mobile data).
+
+Tailwind cues: purge unused styles, use will-change-transform for hover transitions, avoid heavy libraries—rely on utility classes and small Alpine.js sprinkles if needed.
+

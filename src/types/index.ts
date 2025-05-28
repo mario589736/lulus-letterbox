@@ -12,30 +12,33 @@ export interface BlogPost {
 export interface User {
   id: string;
   email: string;
-  password?: string;
+  name?: string;
   createdAt: string;
   isVerified: boolean;
 }
 
 export interface Child {
   id: string;
-  parentId: string;
+  parentId?: string;
   name: string;
   birthDate: string;
-  gender: 'junge' | 'mädchen' | 'andere';
-  favoriteColor?: string;
-  favoriteTheme?: string;
-  createdAt: string;
-  updatedAt: string;
+  gender: 'male' | 'female' | 'other' | 'mädchen' | 'junge';
+  favoriteColor: string;
+  favoriteTheme: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface Milestone {
   id: string;
-  name: string;
+  title: string;
   description: string;
   category: 'basic' | 'advanced' | 'special';
+  isCompleted: boolean;
+  completedAt: Date | null;
+  nextPostcardDate: Date;
   icon: string;
-  order: number;
+  progress: number;
 }
 
 export interface PostcardContent {
@@ -46,18 +49,20 @@ export interface PostcardContent {
   message: string;
   illustration: string;
   isPersonalized: boolean;
-  status: 'draft' | 'preview' | 'approved' | 'rejected';
+  status: 'approved' | 'preview' | 'pending';
   parentFeedback?: string;
 }
 
 export interface ShippingConfig {
-  id: string;
-  childId: string;
-  selectedMilestones: string[];
-  rhythm: 'weekly' | 'milestone' | 'custom';
-  customInterval?: number;
-  isActive: boolean;
-  nextShippingDate?: string;
+  rhythm: 'weekly' | 'milestone-based' | 'custom';
+  frequency?: number;
+  customDates?: Date[];
+  address: {
+    street: string;
+    city: string;
+    postalCode: string;
+    country: string;
+  };
 }
 
 export interface Postcard {
@@ -74,21 +79,23 @@ export interface Postcard {
 }
 
 export interface DashboardData {
-  child: Child;
-  totalPostcards: number;
-  deliveredPostcards: number;
-  upcomingPostcards: number;
-  currentMilestones: Milestone[];
-  recentPostcards: Postcard[];
-  progressTimeline: TimelineEntry[];
+  stats: {
+    totalPostcards: number;
+    deliveredPostcards: number;
+    upcomingPostcards: number;
+    currentStreak: number;
+  };
+  milestones: Milestone[];
+  timeline: TimelineEntry[];
 }
 
 export interface TimelineEntry {
   id: string;
-  date: string;
-  type: 'milestone' | 'postcard' | 'reaction';
+  date: Date | string;
+  type: 'milestone' | 'postcard' | 'reaction' | 'progress';
   title: string;
   description: string;
+  icon: string;
   postcardId?: string;
 }
 
@@ -97,6 +104,6 @@ export interface SEOProps {
   description: string;
   image?: string;
   url?: string;
-  type?: 'website' | 'article';
-  locale?: 'de-DE' | 'de-AT';
+  type?: string;
+  locale?: string;
 } 

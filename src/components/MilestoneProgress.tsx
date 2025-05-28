@@ -1,94 +1,164 @@
-import { Milestone } from '@/types';
+import React from 'react';
+import { Milestone } from '../types';
 
 interface MilestoneProgressProps {
   milestones: Milestone[];
-  childName: string;
+  onMilestoneClick?: (milestoneId: string) => void;
 }
 
-export default function MilestoneProgress({ milestones, childName }: MilestoneProgressProps) {
+export default function MilestoneProgress({ milestones, onMilestoneClick }: MilestoneProgressProps) {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case 'basic':
-        return 'from-blue-500 to-blue-600';
+        return 'from-success-500 to-success-600';
       case 'advanced':
-        return 'from-purple-500 to-purple-600';
+        return 'from-primary-500 to-primary-600';
       case 'special':
-        return 'from-pink-500 to-pink-600';
+        return 'from-warning-500 to-warning-600';
       default:
         return 'from-gray-500 to-gray-600';
     }
   };
 
-  const getCategoryLabel = (category: string) => {
+  const getCategoryName = (category: string) => {
     switch (category) {
       case 'basic':
         return 'Grundlagen';
       case 'advanced':
         return 'Fortgeschritten';
       case 'special':
-        return 'Besondere Erfolge';
+        return 'Besonders';
       default:
-        return 'Sonstige';
+        return 'Unbekannt';
     }
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-6">
-      <div className="flex items-center justify-between mb-6">
-        <h3 className="text-xl font-bold text-gray-800 flex items-center">
-          <span className="text-2xl mr-2">🎯</span>
-          {childName}s Meilensteine
-        </h3>
-        <button className="text-primary-600 hover:text-primary-700 text-sm font-medium">
-          Alle anzeigen →
-        </button>
-      </div>
+    <div className="space-y-6">
+      {milestones.map((milestone, index) => (
+        <div
+          key={milestone.id}
+          className="animate-slide-up cursor-pointer"
+          style={{ animationDelay: `${index * 0.1}s` }}
+          onClick={() => onMilestoneClick?.(milestone.id)}
+        >
+          <div className={`
+            p-6 rounded-2xl border-2 transition-all duration-300 hover:shadow-soft-lg hover:scale-105
+            ${milestone.isCompleted 
+              ? 'border-success-300 bg-gradient-to-br from-success-50 to-success-100 dark:from-success-900/20 dark:to-success-800/20' 
+              : 'border-gray-200 bg-white dark:bg-gray-800 hover:border-gray-300 dark:border-gray-600'
+            }
+          `}>
+            <div className="flex items-start space-x-4">
+              {/* Icon */}
+              <div className={`
+                w-12 h-12 rounded-xl flex items-center justify-center text-2xl
+                ${milestone.isCompleted 
+                  ? 'bg-gradient-to-r from-success-500 to-success-600 animate-bounce-soft' 
+                  : 'bg-gray-100 dark:bg-gray-700'
+                }
+              `}>
+                <span className={milestone.isCompleted ? 'text-white' : 'text-gray-500 dark:text-gray-400'}>
+                  {milestone.isCompleted ? '✅' : milestone.icon}
+                </span>
+              </div>
 
-      <div className="space-y-4">
-        {milestones.map((milestone) => (
-          <div key={milestone.id} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
-            <div className="flex items-start justify-between">
-              <div className="flex items-start space-x-3">
-                <div className="text-2xl">{milestone.icon}</div>
-                <div>
-                  <h4 className="font-semibold text-gray-800 mb-1">
-                    {milestone.name}
-                  </h4>
-                  <p className="text-gray-600 text-sm mb-2">
-                    {milestone.description}
-                  </p>
-                  <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${getCategoryColor(milestone.category)} text-white`}>
-                    {getCategoryLabel(milestone.category)}
+              {/* Content */}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                    {milestone.title}
+                  </h3>
+                  <span className={`
+                    px-3 py-1 rounded-full text-xs font-medium
+                    bg-gradient-to-r ${getCategoryColor(milestone.category)} text-white
+                  `}>
+                    {getCategoryName(milestone.category)}
                   </span>
                 </div>
-              </div>
-              
-              <div className="flex flex-col items-end">
-                <div className="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center">
-                  {/* In einer echten App würde hier der Fortschritt angezeigt */}
-                  <div className="w-3 h-3 rounded-full bg-gray-300"></div>
+
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                  {milestone.description}
+                </p>
+
+                {/* Progress Bar */}
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="font-medium text-gray-700 dark:text-gray-300">
+                      Fortschritt
+                    </span>
+                    <span className={`font-bold ${
+                      milestone.isCompleted ? 'text-success-600' : 'text-gray-600 dark:text-gray-400'
+                    }`}>
+                      {milestone.progress}%
+                    </span>
+                  </div>
+                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+                    <div
+                      className={`
+                        h-full rounded-full transition-all duration-500 ease-out
+                        ${milestone.isCompleted 
+                          ? 'bg-gradient-to-r from-success-500 to-success-600' 
+                          : 'bg-gradient-to-r from-primary-500 to-secondary-500'
+                        }
+                      `}
+                      style={{ width: `${milestone.progress}%` }}
+                    />
+                  </div>
                 </div>
-                <span className="text-xs text-gray-500 mt-1">Ausstehend</span>
+
+                {/* Next Postcard Date */}
+                {!milestone.isCompleted && (
+                  <div className="mt-4 flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
+                    <span>📅</span>
+                    <span>
+                      Nächste Postkarte: {milestone.nextPostcardDate.toLocaleDateString('de-DE')}
+                    </span>
+                  </div>
+                )}
+
+                {/* Completion Date */}
+                {milestone.isCompleted && milestone.completedAt && (
+                  <div className="mt-4 flex items-center space-x-2 text-sm text-success-600 dark:text-success-400">
+                    <span>🎉</span>
+                    <span>
+                      Erreicht am {milestone.completedAt.toLocaleDateString('de-DE')}
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
           </div>
-        ))}
-      </div>
-
-      {milestones.length === 0 && (
-        <div className="text-center py-12">
-          <div className="text-4xl mb-4">🎯</div>
-          <p className="text-gray-500">Noch keine Meilensteine definiert.</p>
         </div>
-      )}
+      ))}
 
-      <div className="mt-6 pt-6 border-t border-gray-200">
-        <div className="flex items-center justify-between text-sm">
-          <span className="text-gray-600">Fortschritt insgesamt</span>
-          <span className="font-medium text-primary-600">2 von 5 erreicht</span>
-        </div>
-        <div className="mt-2 w-full bg-gray-200 rounded-full h-2">
-          <div className="bg-gradient-to-r from-primary-500 to-primary-600 h-2 rounded-full" style={{ width: '40%' }}></div>
+      {/* Summary */}
+      <div className="mt-8 p-6 bg-gradient-to-br from-soft-blue to-soft-purple rounded-2xl border border-gray-200 dark:border-gray-700">
+        <div className="text-center">
+          <div className="text-3xl mb-3">🎯</div>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+            Meilenstein-Übersicht
+          </h3>
+          <div className="grid grid-cols-3 gap-4 text-center">
+            <div>
+              <div className="text-2xl font-bold text-success-600">
+                {milestones.filter(m => m.isCompleted).length}
+              </div>
+              <div className="text-sm text-gray-600 dark:text-gray-300">Erreicht</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-primary-600">
+                {milestones.filter(m => !m.isCompleted && m.progress > 0).length}
+              </div>
+              <div className="text-sm text-gray-600 dark:text-gray-300">In Arbeit</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-gray-600">
+                {milestones.filter(m => m.progress === 0).length}
+              </div>
+              <div className="text-sm text-gray-600 dark:text-gray-300">Geplant</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

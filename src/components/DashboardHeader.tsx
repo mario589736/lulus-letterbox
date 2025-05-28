@@ -72,11 +72,13 @@ export default function DashboardHeader({ child }: DashboardHeaderProps) {
                   {child.name}s Toiletten-Abenteuer
                 </h2>
                 <div className="flex items-center space-x-4 text-sm text-gray-600 mt-1">
-                  <span>{calculateAge(child.birthDate)} alt</span>
-                  <span>•</span>
-                  <span>Lieblingsthema: {child.favoriteTheme}</span>
-                  <span>•</span>
-                  <span>Lieblingsfarbe: {child.favoriteColor}</span>
+                  <p className="text-gray-600 text-sm flex items-center space-x-2">
+                    <span>{calculateAge(child.birthDate)} alt</span>
+                    <span>•</span>
+                    <span>Lieblingsthema: {child.favoriteTheme || ''}</span>
+                    <span>•</span>
+                    <span>Lieblingsfarbe: {child.favoriteColor || ''}</span>
+                  </p>
                 </div>
               </div>
             </div>

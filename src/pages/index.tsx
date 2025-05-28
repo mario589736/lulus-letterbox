@@ -1,160 +1,253 @@
 import { GetStaticProps } from 'next';
-import { DashboardData } from '@/types';
-import { fetchDashboardData } from '@/lib/api';
-import SEOHead from '@/components/SEOHead';
-import DashboardHeader from '@/components/DashboardHeader';
-import MilestoneProgress from '@/components/MilestoneProgress';
-import PostcardTimeline from '@/components/PostcardTimeline';
-import StatsOverview from '@/components/StatsOverview';
+import { useState } from 'react';
+import SEOHead from '../components/SEOHead';
+import DashboardHeader from '../components/DashboardHeader';
+import StatsOverview from '../components/StatsOverview';
+import MilestoneProgress from '../components/MilestoneProgress';
+import PostcardTimeline from '../components/PostcardTimeline';
+import DarkModeToggle from '../components/DarkModeToggle';
+import { useToast } from '../components/Toast';
+import { DashboardData, Child } from '../types';
+import { getDashboardData, getChild } from '../lib/api';
 
-interface HomeProps {
-  dashboardData: DashboardData | null;
+interface HomePageProps {
+  dashboardData: DashboardData;
+  child: Child;
 }
 
-export default function Home({ dashboardData }: HomeProps) {
-  if (!dashboardData) {
-    return (
-      <>
-        <SEOHead
-          title="Willkommen"
-          description="Willkommen bei Lulu's Letterbox - Personalisierte Postkarten für das Toilettentraining"
-          url="https://lulus-letterbox.de"
-          type="website"
-        />
-        
-        <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50 flex items-center justify-center">
-          <div className="text-center max-w-md mx-auto p-8">
-            <div className="text-6xl mb-4">🚽💌</div>
-            <h1 className="text-3xl font-bold text-gray-800 mb-4">
-              Willkommen bei Lulu&apos;s Letterbox!
-            </h1>
-            <p className="text-gray-600 mb-8">
-              Personalisierte Postkarten, die Ihr Kind beim Toilettentraining motivieren und jeden Meilenstein feiern.
-            </p>
-            <div className="space-y-4">
-              <button className="w-full bg-primary-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-primary-700 transition-colors">
-                Jetzt registrieren
-              </button>
-              <button className="w-full border border-primary-600 text-primary-600 py-3 px-6 rounded-lg font-medium hover:bg-primary-50 transition-colors">
-                Anmelden
-              </button>
-            </div>
-          </div>
-        </div>
-      </>
-    );
-  }
+export default function HomePage({ dashboardData, child }: HomePageProps) {
+  const [selectedMilestone, setSelectedMilestone] = useState<string | null>(null);
+  const { success, ToastRenderer } = useToast();
 
-  const { child, totalPostcards, deliveredPostcards, upcomingPostcards, currentMilestones, recentPostcards, progressTimeline } = dashboardData;
+  const handleMilestoneClick = (milestoneId: string) => {
+    setSelectedMilestone(milestoneId);
+    success(
+      'Meilenstein ausgewählt!',
+      'Du kannst hier später Fortschritte markieren.'
+    );
+  };
 
   return (
     <>
       <SEOHead
-        title={`${child.name}s Fortschritt`}
-        description={`Verfolgen Sie ${child.name}s Toilettentraining-Fortschritt mit personalisierten Postkarten von Lulu's Letterbox.`}
-        url={`https://lulus-letterbox.de/dashboard/${child.id}`}
-        type="website"
+        title="Dashboard - Lulus Briefkasten"
+        description={`Verfolge ${child.name}s Töpfchentraining-Fortschritt und sieh dir kommende Postkarten an.`}
+        keywords="Töpfchentraining, Kleinkind, Meilensteine, Postkarten, Motivation"
       />
-      
-      <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50">
-        {/* Header */}
-        <DashboardHeader child={child} />
 
-        <main className="container mx-auto px-4 py-8 max-w-6xl">
-          {/* Statistiken Übersicht */}
-          <StatsOverview 
-            totalPostcards={totalPostcards}
-            deliveredPostcards={deliveredPostcards}
-            upcomingPostcards={upcomingPostcards}
-          />
+      <div className="min-h-screen bg-gradient-to-br from-soft-pink via-white to-soft-purple dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        {/* Header with Dark Mode Toggle */}
+        <div className="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16">
+              {/* Logo */}
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center animate-float">
+                  <span className="text-white font-bold text-lg">L</span>
+                </div>
+                <div>
+                  <h1 className="text-xl font-bold text-gray-900 dark:text-white font-playful">
+                    Lulus Briefkasten
+                  </h1>
+                  <p className="text-xs text-gray-600 dark:text-gray-400">
+                    Post für kleine Helden
+                  </p>
+                </div>
+              </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 mt-8">
-            {/* Meilenstein Fortschritt */}
-            <div className="lg:col-span-2">
-              <MilestoneProgress 
-                milestones={currentMilestones}
-                childName={child.name}
-              />
+              {/* Dark Mode Toggle */}
+              <DarkModeToggle />
+            </div>
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          {/* Welcome Header */}
+          <div className="mb-8 animate-slide-up">
+            <DashboardHeader child={child} />
+          </div>
+
+          {/* Stats Overview */}
+          <div className="mb-8 animate-slide-up" style={{ animationDelay: '0.1s' }}>
+            <StatsOverview stats={dashboardData.stats} />
+          </div>
+
+          {/* Main Dashboard Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Left Column - Milestones */}
+            <div className="lg:col-span-2 space-y-8">
+              {/* Milestone Progress */}
+              <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
+                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-soft-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+                  <div className="bg-gradient-to-r from-primary-500 to-secondary-500 px-6 py-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                        <span className="text-white text-lg">🎯</span>
+                      </div>
+                      <div>
+                        <h2 className="text-xl font-semibold text-white">
+                          Meilensteine
+                        </h2>
+                        <p className="text-sm text-white/80">
+                          {child.name}s Töpfchentraining-Fortschritt
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <MilestoneProgress
+                      milestones={dashboardData.milestones}
+                      onMilestoneClick={handleMilestoneClick}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick Actions */}
+              <div className="animate-slide-up" style={{ animationDelay: '0.3s' }}>
+                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-soft-lg border border-gray-200 dark:border-gray-700 p-6">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                    Schnellaktionen
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <button className="group p-4 bg-gradient-to-r from-success-100 to-success-200 dark:from-success-800 dark:to-success-700 rounded-xl border border-success-300 dark:border-success-600 hover:shadow-soft-lg transition-all duration-200 hover:scale-105">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 bg-success-500 rounded-full flex items-center justify-center group-hover:animate-bounce-soft">
+                          <span className="text-white text-lg">✅</span>
+                        </div>
+                        <div className="text-left">
+                          <div className="font-medium text-success-800 dark:text-success-200">
+                            Erfolg melden
+                          </div>
+                          <div className="text-sm text-success-600 dark:text-success-300">
+                            Meilenstein erreicht!
+                          </div>
+                        </div>
+                      </div>
+                    </button>
+
+                    <button className="group p-4 bg-gradient-to-r from-secondary-100 to-secondary-200 dark:from-secondary-800 dark:to-secondary-700 rounded-xl border border-secondary-300 dark:border-secondary-600 hover:shadow-soft-lg transition-all duration-200 hover:scale-105">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 bg-secondary-500 rounded-full flex items-center justify-center group-hover:animate-wiggle">
+                          <span className="text-white text-lg">📮</span>
+                        </div>
+                        <div className="text-left">
+                          <div className="font-medium text-secondary-800 dark:text-secondary-200">
+                            Postkarte bestellen
+                          </div>
+                          <div className="text-sm text-secondary-600 dark:text-secondary-300">
+                            Neue Überraschung
+                          </div>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Aktuelle Postkarten */}
-            <div>
-              <div className="bg-white rounded-2xl shadow-lg p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                  <span className="text-2xl mr-2">📮</span>
-                  Aktuelle Postkarten
-                </h3>
-                
-                {recentPostcards.length > 0 ? (
-                  <div className="space-y-4">
-                    {recentPostcards.map((postcard) => (
-                      <div key={postcard.id} className="border border-gray-200 rounded-lg p-4">
-                        <div className="flex items-center justify-between mb-2">
-                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                            postcard.status === 'delivered' ? 'bg-green-100 text-green-800' :
-                            postcard.status === 'shipped' ? 'bg-blue-100 text-blue-800' :
-                            postcard.status === 'printed' ? 'bg-yellow-100 text-yellow-800' :
-                            'bg-gray-100 text-gray-800'
-                          }`}>
-                            {postcard.status === 'delivered' ? 'Zugestellt' :
-                             postcard.status === 'shipped' ? 'Versendet' :
-                             postcard.status === 'printed' ? 'Gedruckt' :
-                             'Geplant'}
-                          </span>
-                        </div>
-                        <p className="text-sm text-gray-600">
-                          {postcard.status === 'delivered' ? `Zugestellt am ${new Date(postcard.estimatedDelivery || '').toLocaleDateString('de-DE')}` :
-                           postcard.status === 'shipped' ? `Versendet am ${new Date(postcard.actualShippingDate || '').toLocaleDateString('de-DE')}` :
-                           `Geplant für ${new Date(postcard.plannedShippingDate).toLocaleDateString('de-DE')}`}
-                        </p>
-                        {postcard.trackingNumber && (
-                          <p className="text-xs text-gray-500 mt-1">
-                            Sendungsnummer: {postcard.trackingNumber}
-                          </p>
-                        )}
+            {/* Right Column - Timeline */}
+            <div className="space-y-8">
+              {/* Recent Activity */}
+              <div className="animate-slide-up" style={{ animationDelay: '0.4s' }}>
+                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-soft-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+                  <div className="bg-gradient-to-r from-warning-400 to-warning-500 px-6 py-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                        <span className="text-white text-lg">📅</span>
                       </div>
-                    ))}
+                      <div>
+                        <h2 className="text-xl font-semibold text-white">
+                          Aktivitäten
+                        </h2>
+                        <p className="text-sm text-white/80">
+                          Neueste Ereignisse
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                ) : (
-                  <p className="text-gray-500 text-center py-8">
-                    Noch keine Postkarten geplant
-                  </p>
-                )}
+                  <div className="p-6">
+                    <PostcardTimeline timeline={dashboardData.timeline} />
+                  </div>
+                </div>
+              </div>
+
+              {/* Motivational Card */}
+              <div className="animate-slide-up" style={{ animationDelay: '0.5s' }}>
+                <div className="bg-gradient-to-br from-soft-yellow to-soft-pink rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-soft-lg">
+                  <div className="text-center">
+                    <div className="text-4xl mb-3 animate-float">🌟</div>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                      Du machst das toll!
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {child.name} ist auf dem besten Weg! Jeder kleine Schritt ist ein großer Erfolg. 
+                      Lulu und Kacka sind stolz auf euch beide! 💪
+                    </p>
+                    <div className="mt-4 flex items-center justify-center space-x-2">
+                      <div className="w-6 h-6 bg-gradient-to-r from-pink-400 to-pink-500 rounded-full flex items-center justify-center animate-bounce-soft">
+                        <span className="text-xs">💖</span>
+                      </div>
+                      <span className="text-xs font-medium text-gray-700 dark:text-gray-300">Lulu</span>
+                      <div className="w-6 h-6 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full flex items-center justify-center animate-bounce-soft" style={{ animationDelay: '0.2s' }}>
+                        <span className="text-xs">💩</span>
+                      </div>
+                      <span className="text-xs font-medium text-gray-700 dark:text-gray-300">Kacka</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Support Card */}
+              <div className="animate-slide-up" style={{ animationDelay: '0.6s' }}>
+                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-soft border border-gray-200 dark:border-gray-700 p-6">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center">
+                      <span className="text-white text-lg">💬</span>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+                        Brauchst du Hilfe?
+                      </h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
+                        Unser Support-Team hilft dir gerne bei Fragen rund um Lulus Briefkasten!
+                      </p>
+                      <button className="px-4 py-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white text-sm font-medium rounded-lg hover:shadow-glow transition-all duration-200 hover:scale-105">
+                        Support kontaktieren
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
-          {/* Timeline */}
-          <div className="mt-8">
-            <PostcardTimeline timeline={progressTimeline} />
-          </div>
         </main>
+
+        {/* Toast Renderer */}
+        <ToastRenderer />
       </div>
     </>
   );
 }
 
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   try {
-    // In einer echten App würde hier der eingeloggte Benutzer ermittelt werden
-    // Für die Demo verwenden wir das erste Kind
-    const dashboardData = await fetchDashboardData('1');
-    
+    const dashboardData = await getDashboardData();
+    const child = await getChild('1'); // Default child for demo
+
     return {
       props: {
         dashboardData,
+        child,
       },
-      // Regenerate the page every hour for demo purposes
-      revalidate: 3600,
+      revalidate: 3600, // Revalidate every hour
     };
   } catch (error) {
     console.error('Error fetching dashboard data:', error);
     
     return {
-      props: {
-        dashboardData: null,
-      },
-      revalidate: 60,
+      notFound: true,
     };
   }
 }; 
