@@ -15,13 +15,26 @@ interface HomePageProps {
 }
 
 export default function HomePage({ dashboardData, child }: HomePageProps) {
-  // const [selectedMilestone, setSelectedMilestone] = useState<string | null>(null);
   const { success: showToast, ToastRenderer } = useToast();
 
-  const handleMilestoneClick = (_milestoneId: string) => {
+  const handleMilestoneClick = () => {
     showToast(
       'Meilenstein ausgewählt!',
       'Du kannst hier später Fortschritte markieren.'
+    );
+  };
+
+  const handleSuccessReport = () => {
+    showToast(
+      '🎉 Erfolg gemeldet!',
+      'Toll gemacht! Der Fortschritt wurde gespeichert.'
+    );
+  };
+
+  const handlePostcardOrder = () => {
+    showToast(
+      '📮 Postkarte bestellt!',
+      'Eine neue Überraschung ist unterwegs!'
     );
   };
 
@@ -34,132 +47,176 @@ export default function HomePage({ dashboardData, child }: HomePageProps) {
       />
 
       <div className="min-h-screen bg-gradient-to-br from-soft-pink via-white to-soft-purple dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        {/* Header with Dark Mode Toggle */}
-        <div className="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        {/* Enhanced Header */}
+        <header className="sticky top-0 z-50 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-700/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-16">
-              {/* Logo */}
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center animate-float">
-                  <span className="text-white font-bold text-lg">L</span>
+            <div className="flex items-center justify-between h-20">
+              {/* Enhanced Logo */}
+              <div className="flex items-center space-x-4">
+                <div className="relative">
+                  <div className="w-14 h-14 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl flex items-center justify-center animate-float shadow-glow">
+                    <span className="text-white font-bold text-2xl">💌</span>
+                  </div>
+                  <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-r from-warning-400 to-warning-500 rounded-full flex items-center justify-center animate-bounce-soft">
+                    <span className="text-white text-xs font-bold">3</span>
+                  </div>
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-gray-900 dark:text-white font-playful">
+                  <h1 className="text-2xl font-bold gradient-text font-playful">
                     Lulus Briefkasten
                   </h1>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">
-                    Post für kleine Helden
+                  <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+                    Post für kleine Helden ✨
                   </p>
                 </div>
               </div>
 
-              {/* Dark Mode Toggle */}
-              <DarkModeToggle />
+              {/* Header Actions */}
+              <div className="flex items-center space-x-4">
+                <button className="relative p-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl border border-gray-200/50 dark:border-gray-700/50 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:scale-105">
+                  <span className="text-xl">🔔</span>
+                  <div className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center">
+                    <span className="text-white text-xs font-bold">2</span>
+                  </div>
+                </button>
+                <DarkModeToggle />
+              </div>
             </div>
           </div>
-        </div>
+        </header>
 
         {/* Main Content */}
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          {/* Welcome Header */}
-          <div className="mb-8 animate-slide-up">
-            <DashboardHeader child={child} />
-          </div>
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+          {/* Welcome Section */}
+          <section className="animate-slide-up">
+            <div className="card-elevated">
+              <div className="p-8">
+                <DashboardHeader child={child} />
+              </div>
+            </div>
+          </section>
 
           {/* Stats Overview */}
-          <div className="mb-8 animate-slide-up" style={{ animationDelay: '0.1s' }}>
+          <section className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
             <StatsOverview stats={dashboardData.stats} />
-          </div>
+          </section>
 
           {/* Main Dashboard Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left Column - Milestones */}
-            <div className="lg:col-span-2 space-y-8">
+          <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
+            {/* Left Column - Main Content */}
+            <div className="xl:col-span-8 space-y-8">
               {/* Milestone Progress */}
-              <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
-                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-soft-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
-                  <div className="bg-gradient-to-r from-primary-500 to-secondary-500 px-6 py-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                        <span className="text-white text-lg">🎯</span>
+              <section className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
+                <div className="card-elevated">
+                  <div className="card-header">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="icon-container glass-effect">
+                          <span className="text-2xl">🎯</span>
+                        </div>
+                        <div>
+                          <h2 className="text-2xl font-bold text-white">
+                            Meilensteine
+                          </h2>
+                          <p className="text-white/80 font-medium">
+                            {child.name}s Töpfchentraining-Fortschritt
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h2 className="text-xl font-semibold text-white">
-                          Meilensteine
-                        </h2>
-                        <p className="text-sm text-white/80">
-                          {child.name}s Töpfchentraining-Fortschritt
-                        </p>
+                      <div className="text-right">
+                        <div className="text-3xl font-bold text-white">
+                          {Math.round((dashboardData.milestones.filter(m => m.isCompleted).length / dashboardData.milestones.length) * 100)}%
+                        </div>
+                        <div className="text-white/80 text-sm font-medium">Abgeschlossen</div>
                       </div>
                     </div>
                   </div>
-                  <div className="p-6">
+                  <div className="p-8">
                     <MilestoneProgress
                       milestones={dashboardData.milestones}
                       onMilestoneClick={handleMilestoneClick}
                     />
                   </div>
                 </div>
-              </div>
+              </section>
 
               {/* Quick Actions */}
-              <div className="animate-slide-up" style={{ animationDelay: '0.3s' }}>
-                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-soft-lg border border-gray-200 dark:border-gray-700 p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                    Schnellaktionen
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <button className="group p-4 bg-gradient-to-r from-success-100 to-success-200 dark:from-success-800 dark:to-success-700 rounded-xl border border-success-300 dark:border-success-600 hover:shadow-soft-lg transition-all duration-200 hover:scale-105">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-success-500 rounded-full flex items-center justify-center group-hover:animate-bounce-soft">
-                          <span className="text-white text-lg">✅</span>
-                        </div>
-                        <div className="text-left">
-                          <div className="font-medium text-success-800 dark:text-success-200">
-                            Erfolg melden
-                          </div>
-                          <div className="text-sm text-success-600 dark:text-success-300">
-                            Meilenstein erreicht!
-                          </div>
-                        </div>
+              <section className="animate-slide-up" style={{ animationDelay: '0.3s' }}>
+                <div className="card-elevated">
+                  <div className="p-8">
+                    <div className="flex items-center space-x-3 mb-6">
+                      <div className="icon-container-primary">
+                        <span className="text-xl">⚡</span>
                       </div>
-                    </button>
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                        Schnellaktionen
+                      </h3>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <button 
+                        onClick={handleSuccessReport}
+                        className="group relative overflow-hidden p-6 bg-gradient-to-br from-success-50 to-success-100 dark:from-success-900/20 dark:to-success-800/20 rounded-2xl border border-success-200 dark:border-success-700/50 hover:shadow-xl hover:shadow-success-500/20 transition-all duration-300 hover:scale-105 active:scale-95"
+                      >
+                        <div className="flex items-center space-x-4">
+                          <div className="icon-container-success group-hover:animate-bounce-soft">
+                            <span className="text-2xl">✅</span>
+                          </div>
+                          <div className="text-left">
+                            <div className="text-lg font-bold text-success-800 dark:text-success-200 mb-1">
+                              Erfolg melden
+                            </div>
+                            <div className="text-success-600 dark:text-success-300 font-medium">
+                              Meilenstein erreicht! 🎉
+                            </div>
+                          </div>
+                        </div>
+                        <div className="absolute top-2 right-2 opacity-20 group-hover:opacity-40 transition-opacity">
+                          <span className="text-4xl">🌟</span>
+                        </div>
+                      </button>
 
-                    <button className="group p-4 bg-gradient-to-r from-secondary-100 to-secondary-200 dark:from-secondary-800 dark:to-secondary-700 rounded-xl border border-secondary-300 dark:border-secondary-600 hover:shadow-soft-lg transition-all duration-200 hover:scale-105">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-secondary-500 rounded-full flex items-center justify-center group-hover:animate-wiggle">
-                          <span className="text-white text-lg">📮</span>
-                        </div>
-                        <div className="text-left">
-                          <div className="font-medium text-secondary-800 dark:text-secondary-200">
-                            Postkarte bestellen
+                      <button 
+                        onClick={handlePostcardOrder}
+                        className="group relative overflow-hidden p-6 bg-gradient-to-br from-secondary-50 to-secondary-100 dark:from-secondary-900/20 dark:to-secondary-800/20 rounded-2xl border border-secondary-200 dark:border-secondary-700/50 hover:shadow-xl hover:shadow-secondary-500/20 transition-all duration-300 hover:scale-105 active:scale-95"
+                      >
+                        <div className="flex items-center space-x-4">
+                          <div className="icon-container bg-gradient-to-r from-secondary-500 to-secondary-600 text-white group-hover:animate-wiggle">
+                            <span className="text-2xl">📮</span>
                           </div>
-                          <div className="text-sm text-secondary-600 dark:text-secondary-300">
-                            Neue Überraschung
+                          <div className="text-left">
+                            <div className="text-lg font-bold text-secondary-800 dark:text-secondary-200 mb-1">
+                              Postkarte bestellen
+                            </div>
+                            <div className="text-secondary-600 dark:text-secondary-300 font-medium">
+                              Neue Überraschung 💌
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </button>
+                        <div className="absolute top-2 right-2 opacity-20 group-hover:opacity-40 transition-opacity">
+                          <span className="text-4xl">💝</span>
+                        </div>
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </section>
             </div>
 
-            {/* Right Column - Timeline */}
-            <div className="space-y-8">
+            {/* Right Column - Sidebar */}
+            <div className="xl:col-span-4 space-y-8">
               {/* Recent Activity */}
-              <div className="animate-slide-up" style={{ animationDelay: '0.4s' }}>
-                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-soft-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
-                  <div className="bg-gradient-to-r from-warning-400 to-warning-500 px-6 py-4">
+              <section className="animate-slide-up" style={{ animationDelay: '0.4s' }}>
+                <div className="card-elevated">
+                  <div className="card-header-warning">
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                        <span className="text-white text-lg">📅</span>
+                      <div className="icon-container glass-effect">
+                        <span className="text-xl">📅</span>
                       </div>
                       <div>
-                        <h2 className="text-xl font-semibold text-white">
-                          Aktivitäten
+                        <h2 className="text-xl font-bold text-white">
+                          Fortschritts-Timeline
                         </h2>
-                        <p className="text-sm text-white/80">
+                        <p className="text-white/80 text-sm font-medium">
                           Neueste Ereignisse
                         </p>
                       </div>
@@ -169,55 +226,91 @@ export default function HomePage({ dashboardData, child }: HomePageProps) {
                     <PostcardTimeline timeline={dashboardData.timeline} />
                   </div>
                 </div>
-              </div>
+              </section>
 
               {/* Motivational Card */}
-              <div className="animate-slide-up" style={{ animationDelay: '0.5s' }}>
-                <div className="bg-gradient-to-br from-soft-yellow to-soft-pink rounded-2xl p-6 border border-gray-200 dark:border-gray-700 shadow-soft-lg">
-                  <div className="text-center">
-                    <div className="text-4xl mb-3 animate-float">🌟</div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+              <section className="animate-slide-up" style={{ animationDelay: '0.5s' }}>
+                <div className="relative overflow-hidden bg-gradient-to-br from-soft-yellow via-soft-pink to-soft-purple rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/50 shadow-xl">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+                  <div className="relative text-center">
+                    <div className="text-6xl mb-4 animate-float">🌟</div>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
                       Du machst das toll!
                     </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 font-medium">
                       {child.name} ist auf dem besten Weg! Jeder kleine Schritt ist ein großer Erfolg. 
                       Lulu und Kacka sind stolz auf euch beide! 💪
                     </p>
-                    <div className="mt-4 flex items-center justify-center space-x-2">
-                      <div className="w-6 h-6 bg-gradient-to-r from-pink-400 to-pink-500 rounded-full flex items-center justify-center animate-bounce-soft">
-                        <span className="text-xs">💖</span>
+                    <div className="flex items-center justify-center space-x-4">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-8 h-8 bg-gradient-to-r from-pink-400 to-pink-500 rounded-full flex items-center justify-center animate-bounce-soft shadow-soft">
+                          <span className="text-sm">💖</span>
+                        </div>
+                        <span className="text-sm font-bold text-gray-700 dark:text-gray-300">Lulu</span>
                       </div>
-                      <span className="text-xs font-medium text-gray-700 dark:text-gray-300">Lulu</span>
-                      <div className="w-6 h-6 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full flex items-center justify-center animate-bounce-soft" style={{ animationDelay: '0.2s' }}>
-                        <span className="text-xs">💩</span>
+                      <div className="flex items-center space-x-2">
+                        <div className="w-8 h-8 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full flex items-center justify-center animate-bounce-soft shadow-soft" style={{ animationDelay: '0.2s' }}>
+                          <span className="text-sm">💩</span>
+                        </div>
+                        <span className="text-sm font-bold text-gray-700 dark:text-gray-300">Kacka</span>
                       </div>
-                      <span className="text-xs font-medium text-gray-700 dark:text-gray-300">Kacka</span>
                     </div>
                   </div>
                 </div>
-              </div>
+              </section>
 
               {/* Support Card */}
-              <div className="animate-slide-up" style={{ animationDelay: '0.6s' }}>
-                <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-soft border border-gray-200 dark:border-gray-700 p-6">
-                  <div className="flex items-start space-x-3">
-                    <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full flex items-center justify-center">
-                      <span className="text-white text-lg">💬</span>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-                        Brauchst du Hilfe?
-                      </h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-3">
-                        Unser Support-Team hilft dir gerne bei Fragen rund um Lulus Briefkasten!
-                      </p>
-                      <button className="px-4 py-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white text-sm font-medium rounded-lg hover:shadow-glow transition-all duration-200 hover:scale-105">
-                        Support kontaktieren
-                      </button>
+              <section className="animate-slide-up" style={{ animationDelay: '0.6s' }}>
+                <div className="card-elevated">
+                  <div className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="icon-container-primary">
+                        <span className="text-xl">💬</span>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                          Brauchst du Hilfe?
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4 font-medium">
+                          Unser Support-Team hilft dir gerne bei Fragen rund um Lulus Briefkasten!
+                        </p>
+                        <button className="btn-primary w-full">
+                          Support kontaktieren
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </section>
+
+              {/* Progress Summary */}
+              <section className="animate-slide-up" style={{ animationDelay: '0.7s' }}>
+                <div className="card-elevated">
+                  <div className="p-6">
+                    <div className="flex items-center space-x-3 mb-4">
+                      <div className="icon-container-success">
+                        <span className="text-xl">📊</span>
+                      </div>
+                      <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                        Wochenübersicht
+                      </h3>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-medium text-gray-600 dark:text-gray-300">Erfolgreiche Tage</span>
+                        <span className="text-lg font-bold text-success-600">5/7</span>
+                      </div>
+                      <div className="progress-bar">
+                        <div className="progress-fill-success" style={{ width: '71%' }}></div>
+                      </div>
+                      <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+                        <span>Diese Woche</span>
+                        <span>71% Erfolgsrate</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
           </div>
         </main>
