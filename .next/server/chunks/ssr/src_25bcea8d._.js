@@ -703,7 +703,7 @@ function MilestoneProgress({ milestones, onMilestoneClick }) {
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-        className: "space-y-6",
+        className: "space-y-10",
         children: [
             milestones.map((milestone, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                     className: "animate-slide-up cursor-pointer",
@@ -713,15 +713,15 @@ function MilestoneProgress({ milestones, onMilestoneClick }) {
                     onClick: ()=>onMilestoneClick?.(milestone.id),
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                         className: `
-            p-6 rounded-2xl border-2 transition-all duration-300 hover:shadow-soft-lg hover:scale-105
+            p-8 rounded-2xl border-2 transition-all duration-300 hover:shadow-soft-lg hover:scale-105
             ${milestone.isCompleted ? 'border-success-300 bg-gradient-to-br from-success-50 to-success-100 dark:from-success-900/20 dark:to-success-800/20' : 'border-gray-200 bg-white dark:bg-gray-800 hover:border-gray-300 dark:border-gray-600'}
           `,
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                            className: "flex items-start space-x-4",
+                            className: "flex items-start space-x-6",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                     className: `
-                w-12 h-12 rounded-xl flex items-center justify-center text-2xl
+                w-14 h-14 rounded-xl flex items-center justify-center text-2xl
                 ${milestone.isCompleted ? 'bg-gradient-to-r from-success-500 to-success-600 animate-bounce-soft' : 'bg-gray-100 dark:bg-gray-700'}
               `,
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -741,10 +741,10 @@ function MilestoneProgress({ milestones, onMilestoneClick }) {
                                     className: "flex-1 min-w-0",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                            className: "flex items-center justify-between mb-2",
+                                            className: "flex items-center justify-between mb-3",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
-                                                    className: "text-lg font-semibold text-gray-900 dark:text-white",
+                                                    className: "text-xl font-semibold text-gray-900 dark:text-white",
                                                     children: milestone.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/MilestoneProgress.tsx",
@@ -753,7 +753,7 @@ function MilestoneProgress({ milestones, onMilestoneClick }) {
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
                                                     className: `
-                    px-3 py-1 rounded-full text-xs font-medium
+                    px-4 py-2 rounded-full text-sm font-medium
                     bg-gradient-to-r ${getCategoryColor(milestone.category)} text-white
                   `,
                                                     children: getCategoryName(milestone.category)
@@ -769,7 +769,7 @@ function MilestoneProgress({ milestones, onMilestoneClick }) {
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                                            className: "text-sm text-gray-600 dark:text-gray-300 mb-4 leading-relaxed",
+                                            className: "text-base text-gray-600 dark:text-gray-300 mb-6 leading-relaxed",
                                             children: milestone.description
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/MilestoneProgress.tsx",
@@ -777,7 +777,7 @@ function MilestoneProgress({ milestones, onMilestoneClick }) {
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                            className: "space-y-2",
+                                            className: "space-y-3",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                                     className: "flex items-center justify-between text-sm",
@@ -808,7 +808,7 @@ function MilestoneProgress({ milestones, onMilestoneClick }) {
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                                    className: "w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden",
+                                                    className: "w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden",
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                                         className: `
                         h-full rounded-full transition-all duration-500 ease-out
@@ -834,7 +834,7 @@ function MilestoneProgress({ milestones, onMilestoneClick }) {
                                             columnNumber: 17
                                         }, this),
                                         !milestone.isCompleted && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                            className: "mt-4 flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400",
+                                            className: "mt-6 flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
                                                     children: "📅"
@@ -860,7 +860,7 @@ function MilestoneProgress({ milestones, onMilestoneClick }) {
                                             columnNumber: 19
                                         }, this),
                                         milestone.isCompleted && milestone.completedAt && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                            className: "mt-4 flex items-center space-x-2 text-sm text-success-600 dark:text-success-400",
+                                            className: "mt-6 flex items-center space-x-2 text-sm text-success-600 dark:text-success-400",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
                                                     children: "🎉"
@@ -908,12 +908,12 @@ function MilestoneProgress({ milestones, onMilestoneClick }) {
                     columnNumber: 9
                 }, this)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                className: "mt-8 p-6 bg-gradient-to-br from-soft-blue to-soft-purple rounded-2xl border border-gray-200 dark:border-gray-700",
+                className: "mt-12 p-8 bg-gradient-to-br from-soft-blue to-soft-purple rounded-2xl border border-gray-200 dark:border-gray-700",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                     className: "text-center",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                            className: "text-3xl mb-3",
+                            className: "text-4xl mb-4",
                             children: "🎯"
                         }, void 0, false, {
                             fileName: "[project]/src/components/MilestoneProgress.tsx",
@@ -921,7 +921,7 @@ function MilestoneProgress({ milestones, onMilestoneClick }) {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
-                            className: "text-lg font-semibold text-gray-900 dark:text-white mb-2",
+                            className: "text-xl font-semibold text-gray-900 dark:text-white mb-4",
                             children: "Meilenstein-Übersicht"
                         }, void 0, false, {
                             fileName: "[project]/src/components/MilestoneProgress.tsx",
@@ -929,12 +929,12 @@ function MilestoneProgress({ milestones, onMilestoneClick }) {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                            className: "grid grid-cols-3 gap-4 text-center",
+                            className: "grid grid-cols-3 gap-6 text-center",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                            className: "text-2xl font-bold text-success-600",
+                                            className: "text-3xl font-bold text-success-600",
                                             children: milestones.filter((m)=>m.isCompleted).length
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/MilestoneProgress.tsx",
@@ -942,7 +942,7 @@ function MilestoneProgress({ milestones, onMilestoneClick }) {
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                            className: "text-sm text-gray-600 dark:text-gray-300",
+                                            className: "text-sm text-gray-600 dark:text-gray-300 font-medium",
                                             children: "Erreicht"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/MilestoneProgress.tsx",
@@ -958,7 +958,7 @@ function MilestoneProgress({ milestones, onMilestoneClick }) {
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                            className: "text-2xl font-bold text-primary-600",
+                                            className: "text-3xl font-bold text-primary-600",
                                             children: milestones.filter((m)=>!m.isCompleted && m.progress > 0).length
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/MilestoneProgress.tsx",
@@ -966,7 +966,7 @@ function MilestoneProgress({ milestones, onMilestoneClick }) {
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                            className: "text-sm text-gray-600 dark:text-gray-300",
+                                            className: "text-sm text-gray-600 dark:text-gray-300 font-medium",
                                             children: "In Arbeit"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/MilestoneProgress.tsx",
@@ -982,7 +982,7 @@ function MilestoneProgress({ milestones, onMilestoneClick }) {
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                            className: "text-2xl font-bold text-gray-600",
+                                            className: "text-3xl font-bold text-gray-600",
                                             children: milestones.filter((m)=>m.progress === 0).length
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/MilestoneProgress.tsx",
@@ -990,7 +990,7 @@ function MilestoneProgress({ milestones, onMilestoneClick }) {
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                            className: "text-sm text-gray-600 dark:text-gray-300",
+                                            className: "text-sm text-gray-600 dark:text-gray-300 font-medium",
                                             children: "Geplant"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/MilestoneProgress.tsx",
@@ -1072,157 +1072,164 @@ function PostcardTimeline({ timeline }) {
         });
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-        className: "bg-white rounded-2xl shadow-lg p-6",
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
-                className: "text-xl font-bold text-gray-800 mb-6 flex items-center",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
-                        className: "text-2xl mr-2",
-                        children: "📅"
+        className: "bg-white rounded-2xl shadow-lg",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+            className: "p-8",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
+                    className: "text-xl font-bold text-gray-800 mb-8 flex items-center",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
+                            className: "text-2xl mr-3",
+                            children: "📅"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/PostcardTimeline.tsx",
+                            lineNumber: 47,
+                            columnNumber: 11
+                        }, this),
+                        "Fortschritts-Timeline"
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/components/PostcardTimeline.tsx",
+                    lineNumber: 46,
+                    columnNumber: 9
+                }, this),
+                timeline.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                    className: "space-y-8",
+                    children: timeline.map((entry, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                            className: "flex items-start space-x-6",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                    className: "flex flex-col items-center",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                            className: `w-12 h-12 rounded-full border-2 flex items-center justify-center text-lg ${getTypeColor(entry.type)} shadow-soft`,
+                                            children: getTypeIcon(entry.type)
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/PostcardTimeline.tsx",
+                                            lineNumber: 57,
+                                            columnNumber: 19
+                                        }, this),
+                                        index < timeline.length - 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                            className: "w-0.5 h-12 bg-gray-200 mt-4"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/PostcardTimeline.tsx",
+                                            lineNumber: 61,
+                                            columnNumber: 21
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/components/PostcardTimeline.tsx",
+                                    lineNumber: 56,
+                                    columnNumber: 17
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                    className: "flex-1 pb-6",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                            className: "flex items-center justify-between mb-3",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h4", {
+                                                    className: "font-semibold text-gray-800 text-lg",
+                                                    children: entry.title
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/components/PostcardTimeline.tsx",
+                                                    lineNumber: 68,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
+                                                    className: "text-sm text-gray-500 font-medium",
+                                                    children: formatDate(entry.date)
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/components/PostcardTimeline.tsx",
+                                                    lineNumber: 71,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/components/PostcardTimeline.tsx",
+                                            lineNumber: 67,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                                            className: "text-gray-600 text-sm leading-relaxed mb-4",
+                                            children: entry.description
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/PostcardTimeline.tsx",
+                                            lineNumber: 75,
+                                            columnNumber: 19
+                                        }, this),
+                                        entry.postcardId && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
+                                            className: "text-primary-600 hover:text-primary-700 text-sm font-medium transition-colors duration-200 hover:underline",
+                                            children: "Postkarte anzeigen →"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/PostcardTimeline.tsx",
+                                            lineNumber: 79,
+                                            columnNumber: 21
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/components/PostcardTimeline.tsx",
+                                    lineNumber: 66,
+                                    columnNumber: 17
+                                }, this)
+                            ]
+                        }, entry.id, true, {
+                            fileName: "[project]/src/components/PostcardTimeline.tsx",
+                            lineNumber: 54,
+                            columnNumber: 15
+                        }, this))
+                }, void 0, false, {
+                    fileName: "[project]/src/components/PostcardTimeline.tsx",
+                    lineNumber: 52,
+                    columnNumber: 11
+                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                    className: "text-center py-16",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                            className: "text-4xl mb-6",
+                            children: "📅"
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/PostcardTimeline.tsx",
+                            lineNumber: 89,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                            className: "text-gray-500 text-lg",
+                            children: "Noch keine Aktivitäten in der Timeline."
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/PostcardTimeline.tsx",
+                            lineNumber: 90,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/components/PostcardTimeline.tsx",
+                    lineNumber: 88,
+                    columnNumber: 11
+                }, this),
+                timeline.length > 3 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                    className: "mt-10 pt-8 border-t border-gray-200 text-center",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
+                        className: "text-primary-600 hover:text-primary-700 font-medium text-lg transition-colors duration-200 hover:underline",
+                        children: "Alle Aktivitäten anzeigen →"
                     }, void 0, false, {
                         fileName: "[project]/src/components/PostcardTimeline.tsx",
-                        lineNumber: 46,
-                        columnNumber: 9
-                    }, this),
-                    "Fortschritts-Timeline"
-                ]
-            }, void 0, true, {
-                fileName: "[project]/src/components/PostcardTimeline.tsx",
-                lineNumber: 45,
-                columnNumber: 7
-            }, this),
-            timeline.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                className: "space-y-4",
-                children: timeline.map((entry, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                        className: "flex items-start space-x-4",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                className: "flex flex-col items-center",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                        className: `w-10 h-10 rounded-full border-2 flex items-center justify-center text-lg ${getTypeColor(entry.type)}`,
-                                        children: getTypeIcon(entry.type)
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/components/PostcardTimeline.tsx",
-                                        lineNumber: 56,
-                                        columnNumber: 17
-                                    }, this),
-                                    index < timeline.length - 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                        className: "w-0.5 h-8 bg-gray-200 mt-2"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/components/PostcardTimeline.tsx",
-                                        lineNumber: 60,
-                                        columnNumber: 19
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/src/components/PostcardTimeline.tsx",
-                                lineNumber: 55,
-                                columnNumber: 15
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                className: "flex-1 pb-4",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                        className: "flex items-center justify-between mb-1",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h4", {
-                                                className: "font-semibold text-gray-800",
-                                                children: entry.title
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/components/PostcardTimeline.tsx",
-                                                lineNumber: 67,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
-                                                className: "text-sm text-gray-500",
-                                                children: formatDate(entry.date)
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/components/PostcardTimeline.tsx",
-                                                lineNumber: 70,
-                                                columnNumber: 19
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/src/components/PostcardTimeline.tsx",
-                                        lineNumber: 66,
-                                        columnNumber: 17
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                                        className: "text-gray-600 text-sm",
-                                        children: entry.description
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/components/PostcardTimeline.tsx",
-                                        lineNumber: 74,
-                                        columnNumber: 17
-                                    }, this),
-                                    entry.postcardId && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                                        className: "text-primary-600 hover:text-primary-700 text-xs font-medium mt-2",
-                                        children: "Postkarte anzeigen →"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/components/PostcardTimeline.tsx",
-                                        lineNumber: 78,
-                                        columnNumber: 19
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/src/components/PostcardTimeline.tsx",
-                                lineNumber: 65,
-                                columnNumber: 15
-                            }, this)
-                        ]
-                    }, entry.id, true, {
-                        fileName: "[project]/src/components/PostcardTimeline.tsx",
-                        lineNumber: 53,
+                        lineNumber: 96,
                         columnNumber: 13
-                    }, this))
-            }, void 0, false, {
-                fileName: "[project]/src/components/PostcardTimeline.tsx",
-                lineNumber: 51,
-                columnNumber: 9
-            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                className: "text-center py-12",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                        className: "text-4xl mb-4",
-                        children: "📅"
-                    }, void 0, false, {
-                        fileName: "[project]/src/components/PostcardTimeline.tsx",
-                        lineNumber: 88,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                        className: "text-gray-500",
-                        children: "Noch keine Aktivitäten in der Timeline."
-                    }, void 0, false, {
-                        fileName: "[project]/src/components/PostcardTimeline.tsx",
-                        lineNumber: 89,
-                        columnNumber: 11
                     }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/src/components/PostcardTimeline.tsx",
-                lineNumber: 87,
-                columnNumber: 9
-            }, this),
-            timeline.length > 3 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                className: "mt-6 pt-6 border-t border-gray-200 text-center",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
-                    className: "text-primary-600 hover:text-primary-700 font-medium",
-                    children: "Alle Aktivitäten anzeigen →"
                 }, void 0, false, {
                     fileName: "[project]/src/components/PostcardTimeline.tsx",
                     lineNumber: 95,
                     columnNumber: 11
                 }, this)
-            }, void 0, false, {
-                fileName: "[project]/src/components/PostcardTimeline.tsx",
-                lineNumber: 94,
-                columnNumber: 9
-            }, this)
-        ]
-    }, void 0, true, {
+            ]
+        }, void 0, true, {
+            fileName: "[project]/src/components/PostcardTimeline.tsx",
+            lineNumber: 45,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
         fileName: "[project]/src/components/PostcardTimeline.tsx",
         lineNumber: 44,
         columnNumber: 5
@@ -2214,7 +2221,7 @@ function HomePage({ dashboardData, child }) {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("main", {
-                        className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8",
+                        className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("section", {
                                 className: "animate-slide-up",
@@ -2262,10 +2269,10 @@ function HomePage({ dashboardData, child }) {
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                className: "grid grid-cols-1 xl:grid-cols-12 gap-8",
+                                className: "grid grid-cols-1 xl:grid-cols-12 gap-12",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                        className: "xl:col-span-8 space-y-8",
+                                        className: "xl:col-span-8 space-y-12",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("section", {
                                                 className: "animate-slide-up",
@@ -2407,7 +2414,7 @@ function HomePage({ dashboardData, child }) {
                                                         className: "p-8",
                                                         children: [
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                                                className: "flex items-center space-x-3 mb-6",
+                                                                className: "flex items-center space-x-3 mb-8",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                                                         className: "icon-container-primary",
@@ -2439,7 +2446,7 @@ function HomePage({ dashboardData, child }) {
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                                                className: "grid grid-cols-1 md:grid-cols-2 gap-6",
+                                                                className: "grid grid-cols-1 md:grid-cols-2 gap-8",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
                                                                         onClick: handleSuccessReport,
@@ -2618,7 +2625,7 @@ function HomePage({ dashboardData, child }) {
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                        className: "xl:col-span-4 space-y-8",
+                                        className: "xl:col-span-4 space-y-12",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("section", {
                                                 className: "animate-slide-up",
@@ -2684,7 +2691,7 @@ function HomePage({ dashboardData, child }) {
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                                            className: "p-6",
+                                                            className: "p-8",
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PostcardTimeline$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                                                                 timeline: dashboardData.timeline
                                                             }, void 0, false, {
@@ -2714,7 +2721,7 @@ function HomePage({ dashboardData, child }) {
                                                     animationDelay: '0.5s'
                                                 },
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                                    className: "relative overflow-hidden bg-gradient-to-br from-soft-yellow via-soft-pink to-soft-purple rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/50 shadow-xl",
+                                                    className: "relative overflow-hidden bg-gradient-to-br from-soft-yellow via-soft-pink to-soft-purple rounded-3xl p-10 border border-gray-200/50 dark:border-gray-700/50 shadow-xl",
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                                             className: "absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"
@@ -2727,7 +2734,7 @@ function HomePage({ dashboardData, child }) {
                                                             className: "relative text-center",
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                                                    className: "text-6xl mb-4 animate-float",
+                                                                    className: "text-6xl mb-6 animate-float",
                                                                     children: "🌟"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/pages/index.tsx",
@@ -2735,7 +2742,7 @@ function HomePage({ dashboardData, child }) {
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
-                                                                    className: "text-2xl font-bold text-gray-900 dark:text-white mb-3",
+                                                                    className: "text-2xl font-bold text-gray-900 dark:text-white mb-4",
                                                                     children: "Du machst das toll!"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/pages/index.tsx",
@@ -2743,7 +2750,7 @@ function HomePage({ dashboardData, child }) {
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                                                                    className: "text-gray-700 dark:text-gray-300 leading-relaxed mb-6 font-medium",
+                                                                    className: "text-gray-700 dark:text-gray-300 leading-relaxed mb-8 font-medium",
                                                                     children: [
                                                                         child.name,
                                                                         " ist auf dem besten Weg! Jeder kleine Schritt ist ein großer Erfolg. Lulu und Kacka sind stolz auf euch beide! 💪"
@@ -2854,7 +2861,7 @@ function HomePage({ dashboardData, child }) {
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                                     className: "card-elevated",
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                                        className: "p-6",
+                                                        className: "p-8",
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                                             className: "flex items-start space-x-4",
                                                             children: [
@@ -2877,7 +2884,7 @@ function HomePage({ dashboardData, child }) {
                                                                     className: "flex-1",
                                                                     children: [
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
-                                                                            className: "text-lg font-bold text-gray-900 dark:text-white mb-2",
+                                                                            className: "text-lg font-bold text-gray-900 dark:text-white mb-3",
                                                                             children: "Brauchst du Hilfe?"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/pages/index.tsx",
@@ -2885,7 +2892,7 @@ function HomePage({ dashboardData, child }) {
                                                                             columnNumber: 25
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                                                                            className: "text-gray-600 dark:text-gray-300 leading-relaxed mb-4 font-medium",
+                                                                            className: "text-gray-600 dark:text-gray-300 leading-relaxed mb-6 font-medium",
                                                                             children: "Unser Support-Team hilft dir gerne bei Fragen rund um Lulus Briefkasten!"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/pages/index.tsx",
@@ -2935,10 +2942,10 @@ function HomePage({ dashboardData, child }) {
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                                     className: "card-elevated",
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                                        className: "p-6",
+                                                        className: "p-8",
                                                         children: [
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                                                className: "flex items-center space-x-3 mb-4",
+                                                                className: "flex items-center space-x-3 mb-6",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                                                         className: "icon-container-success",
@@ -2970,7 +2977,7 @@ function HomePage({ dashboardData, child }) {
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                                                className: "space-y-4",
+                                                                className: "space-y-6",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                                                         className: "flex items-center justify-between",

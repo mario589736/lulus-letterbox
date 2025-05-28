@@ -212,15 +212,15 @@ a {
   }
   
   .card-header {
-    @apply bg-gradient-to-r from-primary-500 to-secondary-500 px-6 py-5;
+    @apply bg-gradient-to-r from-primary-500 to-secondary-500 px-8 py-6;
   }
   
   .card-header-success {
-    @apply bg-gradient-to-r from-success-500 to-success-600 px-6 py-5;
+    @apply bg-gradient-to-r from-success-500 to-success-600 px-8 py-6;
   }
   
   .card-header-warning {
-    @apply bg-gradient-to-r from-warning-400 to-warning-500 px-6 py-5;
+    @apply bg-gradient-to-r from-warning-400 to-warning-500 px-8 py-6;
   }
   
   .gradient-text {
@@ -236,7 +236,7 @@ a {
   }
   
   .milestone-card {
-    @apply bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-200/50 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:scale-[1.02];
+    @apply bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-200/50 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:scale-[1.02] p-8 mb-8;
   }
   
   .milestone-card-completed {
@@ -276,11 +276,36 @@ a {
   }
   
   .stat-card {
-    @apply bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:scale-105;
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:scale-105;
   }
   
   .timeline-item {
-    @apply flex items-start space-x-4 p-4 rounded-xl hover:bg-gray-50/50 transition-colors duration-200;
+    @apply flex items-start space-x-4 p-6 rounded-xl hover:bg-gray-50/50 transition-colors duration-200 mb-6;
+  }
+
+  /* New spacing utilities */
+  .section-spacing {
+    @apply py-16 space-y-16;
+  }
+  
+  .card-spacing {
+    @apply p-8 space-y-6;
+  }
+  
+  .large-spacing {
+    @apply space-y-12;
+  }
+  
+  .xl-spacing {
+    @apply space-y-16;
+  }
+  
+  .component-gap {
+    @apply gap-8;
+  }
+  
+  .component-gap-lg {
+    @apply gap-12;
   }
 }
 

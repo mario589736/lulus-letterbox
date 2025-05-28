@@ -86,7 +86,7 @@ export default function HomePage({ dashboardData, child }: HomePageProps) {
         </header>
 
         {/* Main Content */}
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
           {/* Welcome Section */}
           <section className="animate-slide-up">
             <div className="card-elevated">
@@ -102,9 +102,9 @@ export default function HomePage({ dashboardData, child }: HomePageProps) {
           </section>
 
           {/* Main Dashboard Grid */}
-          <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
+          <div className="grid grid-cols-1 xl:grid-cols-12 gap-12">
             {/* Left Column - Main Content */}
-            <div className="xl:col-span-8 space-y-8">
+            <div className="xl:col-span-8 space-y-12">
               {/* Milestone Progress */}
               <section className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
                 <div className="card-elevated">
@@ -144,7 +144,7 @@ export default function HomePage({ dashboardData, child }: HomePageProps) {
               <section className="animate-slide-up" style={{ animationDelay: '0.3s' }}>
                 <div className="card-elevated">
                   <div className="p-8">
-                    <div className="flex items-center space-x-3 mb-6">
+                    <div className="flex items-center space-x-3 mb-8">
                       <div className="icon-container-primary">
                         <span className="text-xl">⚡</span>
                       </div>
@@ -152,7 +152,7 @@ export default function HomePage({ dashboardData, child }: HomePageProps) {
                         Schnellaktionen
                       </h3>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       <button 
                         onClick={handleSuccessReport}
                         className="group relative overflow-hidden p-6 bg-gradient-to-br from-success-50 to-success-100 dark:from-success-900/20 dark:to-success-800/20 rounded-2xl border border-success-200 dark:border-success-700/50 hover:shadow-xl hover:shadow-success-500/20 transition-all duration-300 hover:scale-105 active:scale-95"
@@ -203,7 +203,7 @@ export default function HomePage({ dashboardData, child }: HomePageProps) {
             </div>
 
             {/* Right Column - Sidebar */}
-            <div className="xl:col-span-4 space-y-8">
+            <div className="xl:col-span-4 space-y-12">
               {/* Recent Activity */}
               <section className="animate-slide-up" style={{ animationDelay: '0.4s' }}>
                 <div className="card-elevated">
@@ -222,7 +222,7 @@ export default function HomePage({ dashboardData, child }: HomePageProps) {
                       </div>
                     </div>
                   </div>
-                  <div className="p-6">
+                  <div className="p-8">
                     <PostcardTimeline timeline={dashboardData.timeline} />
                   </div>
                 </div>
@@ -230,14 +230,14 @@ export default function HomePage({ dashboardData, child }: HomePageProps) {
 
               {/* Motivational Card */}
               <section className="animate-slide-up" style={{ animationDelay: '0.5s' }}>
-                <div className="relative overflow-hidden bg-gradient-to-br from-soft-yellow via-soft-pink to-soft-purple rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/50 shadow-xl">
+                <div className="relative overflow-hidden bg-gradient-to-br from-soft-yellow via-soft-pink to-soft-purple rounded-3xl p-10 border border-gray-200/50 dark:border-gray-700/50 shadow-xl">
                   <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
                   <div className="relative text-center">
-                    <div className="text-6xl mb-4 animate-float">🌟</div>
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                    <div className="text-6xl mb-6 animate-float">🌟</div>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                       Du machst das toll!
                     </h3>
-                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 font-medium">
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-8 font-medium">
                       {child.name} ist auf dem besten Weg! Jeder kleine Schritt ist ein großer Erfolg. 
                       Lulu und Kacka sind stolz auf euch beide! 💪
                     </p>
@@ -262,16 +262,16 @@ export default function HomePage({ dashboardData, child }: HomePageProps) {
               {/* Support Card */}
               <section className="animate-slide-up" style={{ animationDelay: '0.6s' }}>
                 <div className="card-elevated">
-                  <div className="p-6">
+                  <div className="p-8">
                     <div className="flex items-start space-x-4">
                       <div className="icon-container-primary">
                         <span className="text-xl">💬</span>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3">
                           Brauchst du Hilfe?
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4 font-medium">
+                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 font-medium">
                           Unser Support-Team hilft dir gerne bei Fragen rund um Lulus Briefkasten!
                         </p>
                         <button className="btn-primary w-full">
@@ -286,8 +286,8 @@ export default function HomePage({ dashboardData, child }: HomePageProps) {
               {/* Progress Summary */}
               <section className="animate-slide-up" style={{ animationDelay: '0.7s' }}>
                 <div className="card-elevated">
-                  <div className="p-6">
-                    <div className="flex items-center space-x-3 mb-4">
+                  <div className="p-8">
+                    <div className="flex items-center space-x-3 mb-6">
                       <div className="icon-container-success">
                         <span className="text-xl">📊</span>
                       </div>
@@ -295,7 +295,7 @@ export default function HomePage({ dashboardData, child }: HomePageProps) {
                         Wochenübersicht
                       </h3>
                     </div>
-                    <div className="space-y-4">
+                    <div className="space-y-6">
                       <div className="flex items-center justify-between">
                         <span className="text-sm font-medium text-gray-600 dark:text-gray-300">Erfolgreiche Tage</span>
                         <span className="text-lg font-bold text-success-600">5/7</span>
