@@ -66,7 +66,7 @@ export default function OnboardingForm({ onComplete }: OnboardingFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const { success, error } = useToast();
 
-  const updateFormData = (field: string, value: any) => {
+  const updateFormData = (field: string, value: string) => {
     setFormData(prev => ({
       ...prev,
       [field]: value,
@@ -166,7 +166,7 @@ export default function OnboardingForm({ onComplete }: OnboardingFormProps) {
         'Willkommen bei Lulus Briefkasten! Du erhältst eine Bestätigungs-E-Mail.'
       );
       onComplete(formData);
-    } catch (err) {
+    } catch {
       error(
         'Fehler bei der Registrierung',
         'Bitte versuche es erneut oder kontaktiere den Support.'
@@ -241,7 +241,7 @@ export default function OnboardingForm({ onComplete }: OnboardingFormProps) {
           value={getValue(name)}
           onChange={(e) => {
             if (name.includes('.')) {
-              const [parent, child] = name.split('.');
+              const [, child] = name.split('.');
               updateAddressData(child, e.target.value);
             } else {
               updateFormData(name, e.target.value);

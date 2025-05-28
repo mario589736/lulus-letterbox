@@ -2037,6 +2037,18 @@ function Toast({ type, title, message, duration = 5000, onClose }) {
     const [isVisible, setIsVisible] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [isClosing, setIsClosing] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const style = toastStyles[type];
+    const handleClose = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useCallback"])({
+        "Toast.useCallback[handleClose]": ()=>{
+            setIsClosing(true);
+            setTimeout({
+                "Toast.useCallback[handleClose]": ()=>{
+                    onClose();
+                }
+            }["Toast.useCallback[handleClose]"], 300); // Match animation duration
+        }
+    }["Toast.useCallback[handleClose]"], [
+        onClose
+    ]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Toast.useEffect": ()=>{
             // Show animation
@@ -2052,14 +2064,9 @@ function Toast({ type, title, message, duration = 5000, onClose }) {
             })["Toast.useEffect"];
         }
     }["Toast.useEffect"], [
-        duration
+        duration,
+        handleClose
     ]);
-    const handleClose = ()=>{
-        setIsClosing(true);
-        setTimeout(()=>{
-            onClose();
-        }, 300); // Match animation duration
-    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: `
         transform transition-all duration-300 ease-out
@@ -2149,7 +2156,7 @@ function Toast({ type, title, message, duration = 5000, onClose }) {
         columnNumber: 5
     }, this);
 }
-_s(Toast, "7/03ZgoRoAXB8Io/bhRQSJ1UkXg=");
+_s(Toast, "wDCsKqpND7AL9ES0l65Q/hu3QZc=");
 _c = Toast;
 function ToastContainer({ children }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {

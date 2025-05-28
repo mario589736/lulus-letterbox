@@ -34,12 +34,11 @@ export default function MilestoneCalendar({
 }: MilestoneCalendarProps) {
   const [currentMonth, setCurrentMonth] = useState(new Date());
 
-  const { days, monthStart, monthEnd } = useMemo(() => {
+  const { days } = useMemo(() => {
     const year = currentMonth.getFullYear();
     const month = currentMonth.getMonth();
     
     const monthStart = new Date(year, month, 1);
-    const monthEnd = new Date(year, month + 1, 0);
     const startDate = new Date(monthStart);
     startDate.setDate(startDate.getDate() - startDate.getDay());
     
@@ -51,7 +50,7 @@ export default function MilestoneCalendar({
       currentDate.setDate(currentDate.getDate() + 1);
     }
     
-    return { days, monthStart, monthEnd };
+    return { days };
   }, [currentMonth]);
 
   const getEventsForDate = (date: Date): CalendarEvent[] => {

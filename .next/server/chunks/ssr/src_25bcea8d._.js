@@ -1520,6 +1520,14 @@ function Toast({ type, title, message, duration = 5000, onClose }) {
     const [isVisible, setIsVisible] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(false);
     const [isClosing, setIsClosing] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(false);
     const style = toastStyles[type];
+    const handleClose = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useCallback"])(()=>{
+        setIsClosing(true);
+        setTimeout(()=>{
+            onClose();
+        }, 300); // Match animation duration
+    }, [
+        onClose
+    ]);
     (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
         // Show animation
         setIsVisible(true);
@@ -1529,14 +1537,9 @@ function Toast({ type, title, message, duration = 5000, onClose }) {
         }, duration);
         return ()=>clearTimeout(timer);
     }, [
-        duration
+        duration,
+        handleClose
     ]);
-    const handleClose = ()=>{
-        setIsClosing(true);
-        setTimeout(()=>{
-            onClose();
-        }, 300); // Match animation duration
-    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
         className: `
         transform transition-all duration-300 ease-out

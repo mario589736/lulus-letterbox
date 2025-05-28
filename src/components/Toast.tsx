@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 interface ToastProps {
   type: 'success' | 'warning' | 'error' | 'info';
@@ -80,6 +80,13 @@ export function Toast({ type, title, message, duration = 5000, onClose }: ToastP
   const [isClosing, setIsClosing] = useState(false);
   const style = toastStyles[type];
 
+  const handleClose = useCallback(() => {
+    setIsClosing(true);
+    setTimeout(() => {
+      onClose();
+    }, 300); // Match animation duration
+  }, [onClose]);
+
   useEffect(() => {
     // Show animation
     setIsVisible(true);
@@ -90,14 +97,7 @@ export function Toast({ type, title, message, duration = 5000, onClose }: ToastP
     }, duration);
 
     return () => clearTimeout(timer);
-  }, [duration]);
-
-  const handleClose = () => {
-    setIsClosing(true);
-    setTimeout(() => {
-      onClose();
-    }, 300); // Match animation duration
-  };
+  }, [duration, handleClose]);
 
   return (
     <div
