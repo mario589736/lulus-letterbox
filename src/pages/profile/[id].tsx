@@ -115,7 +115,9 @@ export default function ChildProfile({ child, dashboardData }: ChildProfileProps
                   </div>
                   <div className="bg-gray-50 rounded-lg p-3">
                     <span className="text-gray-500">Profil erstellt:</span>
-                    <p className="font-medium text-gray-800">{formatDate(child.createdAt)}</p>
+                    <p className="font-medium text-gray-800">
+                      {child.createdAt ? formatDate(child.createdAt) : 'Unbekannt'}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -126,17 +128,17 @@ export default function ChildProfile({ child, dashboardData }: ChildProfileProps
           <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
               <div className="text-3xl mb-2">📮</div>
-              <div className="text-2xl font-bold text-primary-600">{dashboardData.totalPostcards}</div>
+              <div className="text-2xl font-bold text-primary-600">{dashboardData.stats.totalPostcards}</div>
               <div className="text-gray-600">Postkarten gesamt</div>
             </div>
             <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
               <div className="text-3xl mb-2">✅</div>
-              <div className="text-2xl font-bold text-green-600">{dashboardData.deliveredPostcards}</div>
+              <div className="text-2xl font-bold text-green-600">{dashboardData.stats.deliveredPostcards}</div>
               <div className="text-gray-600">Zugestellt</div>
             </div>
             <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
               <div className="text-3xl mb-2">🎯</div>
-              <div className="text-2xl font-bold text-yellow-600">{dashboardData.currentMilestones.length}</div>
+              <div className="text-2xl font-bold text-yellow-600">{dashboardData.milestones.filter(m => !m.isCompleted).length}</div>
               <div className="text-gray-600">Aktive Meilensteine</div>
             </div>
           </section>
@@ -149,12 +151,12 @@ export default function ChildProfile({ child, dashboardData }: ChildProfileProps
             </h2>
             
             <div className="space-y-4">
-              {dashboardData.currentMilestones.map((milestone) => (
+              {dashboardData.milestones.filter(m => !m.isCompleted).map((milestone) => (
                 <div key={milestone.id} className="border border-gray-200 rounded-lg p-4">
                   <div className="flex items-start space-x-3">
                     <div className="text-2xl">{milestone.icon}</div>
                     <div className="flex-1">
-                      <h3 className="font-semibold text-gray-800">{milestone.name}</h3>
+                      <h3 className="font-semibold text-gray-800">{milestone.title}</h3>
                       <p className="text-gray-600 text-sm">{milestone.description}</p>
                     </div>
                     <div className="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center">
@@ -170,49 +172,32 @@ export default function ChildProfile({ child, dashboardData }: ChildProfileProps
           <section className="bg-white rounded-2xl shadow-lg p-6">
             <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
               <span className="text-2xl mr-2">📅</span>
-              Postkarten Historie
+              Timeline
             </h2>
             
-            {dashboardData.recentPostcards.length > 0 ? (
+            {dashboardData.timeline.length > 0 ? (
               <div className="space-y-4">
-                {dashboardData.recentPostcards.map((postcard) => (
-                  <div key={postcard.id} className="border border-gray-200 rounded-lg p-4">
+                {dashboardData.timeline.map((entry) => (
+                  <div key={entry.id} className="border border-gray-200 rounded-lg p-4">
                     <div className="flex items-center justify-between">
                       <div>
                         <div className="flex items-center space-x-2 mb-2">
-                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                            postcard.status === 'delivered' ? 'bg-green-100 text-green-800' :
-                            postcard.status === 'shipped' ? 'bg-blue-100 text-blue-800' :
-                            postcard.status === 'printed' ? 'bg-yellow-100 text-yellow-800' :
-                            'bg-gray-100 text-gray-800'
-                          }`}>
-                            {postcard.status === 'delivered' ? 'Zugestellt' :
-                             postcard.status === 'shipped' ? 'Versendet' :
-                             postcard.status === 'printed' ? 'Gedruckt' :
-                             'Geplant'}
-                          </span>
+                          <span className="text-lg">{entry.icon}</span>
+                          <span className="font-semibold text-gray-800">{entry.title}</span>
                         </div>
-                        <p className="text-sm text-gray-600">
-                          {postcard.status === 'delivered' 
-                            ? `Zugestellt am ${new Date(postcard.estimatedDelivery || '').toLocaleDateString('de-DE')}`
-                            : `Geplant für ${new Date(postcard.plannedShippingDate).toLocaleDateString('de-DE')}`
-                          }
+                        <p className="text-sm text-gray-600">{entry.description}</p>
+                        <p className="text-xs text-gray-500 mt-1">
+                          {new Date(entry.date).toLocaleDateString('de-DE')}
                         </p>
                       </div>
-                      <Link
-                        href={`/postcard/${postcard.contentId}`}
-                        className="text-primary-600 hover:text-primary-700 text-sm font-medium"
-                      >
-                        Anzeigen →
-                      </Link>
                     </div>
                   </div>
                 ))}
               </div>
             ) : (
               <div className="text-center py-12">
-                <div className="text-4xl mb-4">📮</div>
-                <p className="text-gray-500">Noch keine Postkarten versendet.</p>
+                <div className="text-4xl mb-4">📅</div>
+                <p className="text-gray-500">Noch keine Aktivitäten in der Timeline.</p>
               </div>
             )}
           </section>
@@ -230,7 +215,7 @@ export const getServerSideProps: GetServerSideProps<ChildProfileProps> = async (
     let dashboardData = null;
     
     if (child) {
-      dashboardData = await fetchDashboardData(child.id);
+      dashboardData = await fetchDashboardData();
     }
     
     return {

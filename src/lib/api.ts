@@ -1,4 +1,4 @@
-import { User, Child, Milestone, PostcardContent, Postcard, DashboardData, TimelineEntry } from '@/types';
+import { User, Child, Milestone, PostcardContent, Postcard, DashboardData } from '@/types';
 
 // Mock data for German toilet training milestones
 const mockMilestones: Milestone[] = [
@@ -10,7 +10,7 @@ const mockMilestones: Milestone[] = [
     icon: '🚽',
     isCompleted: false,
     completedAt: null,
-    nextPostcardDate: new Date('2024-02-01'),
+    nextPostcardDate: new Date('2024-02-01').toISOString(),
     progress: 0,
   },
   {
@@ -21,7 +21,7 @@ const mockMilestones: Milestone[] = [
     icon: '⭐',
     isCompleted: false,
     completedAt: null,
-    nextPostcardDate: new Date('2024-02-15'),
+    nextPostcardDate: new Date('2024-02-15').toISOString(),
     progress: 0,
   },
   {
@@ -32,7 +32,7 @@ const mockMilestones: Milestone[] = [
     icon: '🌙',
     isCompleted: false,
     completedAt: null,
-    nextPostcardDate: new Date('2024-03-01'),
+    nextPostcardDate: new Date('2024-03-01').toISOString(),
     progress: 0,
   },
   {
@@ -43,7 +43,7 @@ const mockMilestones: Milestone[] = [
     icon: '🚽',
     isCompleted: false,
     completedAt: null,
-    nextPostcardDate: new Date('2024-03-15'),
+    nextPostcardDate: new Date('2024-03-15').toISOString(),
     progress: 0,
   },
   {
@@ -54,7 +54,7 @@ const mockMilestones: Milestone[] = [
     icon: '💩',
     isCompleted: false,
     completedAt: null,
-    nextPostcardDate: new Date('2024-04-01'),
+    nextPostcardDate: new Date('2024-04-01').toISOString(),
     progress: 0,
   },
 ];
@@ -135,36 +135,6 @@ const mockPostcards: Postcard[] = [
   },
 ];
 
-// Mock Timeline
-const mockTimeline: TimelineEntry[] = [
-  {
-    id: '1',
-    date: '2024-01-22',
-    type: 'postcard',
-    title: 'Postkarte zugestellt',
-    description: 'Erste Postkarte "Erstes Mal ohne Windel" wurde zugestellt',
-    icon: '📮',
-    postcardId: '1',
-  },
-  {
-    id: '2',
-    date: '2024-01-20',
-    type: 'milestone',
-    title: 'Meilenstein erreicht',
-    description: 'Emma hat das erste Mal erfolgreich die Toilette benutzt!',
-    icon: '🎯',
-  },
-  {
-    id: '3',
-    date: '2024-01-23',
-    type: 'reaction',
-    title: 'Reaktion aufgezeichnet',
-    description: 'Emma war überglücklich und hat vor Freude gesprungen',
-    icon: '😊',
-    postcardId: '1',
-  },
-];
-
 // Simuliere API-Verzögerung
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -208,8 +178,8 @@ export const getDashboardData = async (): Promise<DashboardData> => {
         description: 'Das erste Mal erfolgreich das Töpfchen benutzt',
         category: 'basic',
         isCompleted: true,
-        completedAt: new Date('2024-01-15'),
-        nextPostcardDate: new Date('2024-02-01'),
+        completedAt: new Date('2024-01-15').toISOString(),
+        nextPostcardDate: new Date('2024-02-01').toISOString(),
         icon: '🎯',
         progress: 100,
       },
@@ -219,8 +189,8 @@ export const getDashboardData = async (): Promise<DashboardData> => {
         description: 'Drei aufeinanderfolgende Tage ohne Unfälle',
         category: 'basic',
         isCompleted: true,
-        completedAt: new Date('2024-01-20'),
-        nextPostcardDate: new Date('2024-02-05'),
+        completedAt: new Date('2024-01-20').toISOString(),
+        nextPostcardDate: new Date('2024-02-05').toISOString(),
         icon: '⭐',
         progress: 100,
       },
@@ -231,7 +201,7 @@ export const getDashboardData = async (): Promise<DashboardData> => {
         category: 'advanced',
         isCompleted: false,
         completedAt: null,
-        nextPostcardDate: new Date('2024-02-15'),
+        nextPostcardDate: new Date('2024-02-15').toISOString(),
         icon: '🌙',
         progress: 60,
       },
@@ -242,7 +212,7 @@ export const getDashboardData = async (): Promise<DashboardData> => {
         category: 'advanced',
         isCompleted: false,
         completedAt: null,
-        nextPostcardDate: new Date('2024-02-20'),
+        nextPostcardDate: new Date('2024-02-20').toISOString(),
         icon: '🚽',
         progress: 40,
       },
@@ -253,7 +223,7 @@ export const getDashboardData = async (): Promise<DashboardData> => {
         category: 'special',
         isCompleted: false,
         completedAt: null,
-        nextPostcardDate: new Date('2024-03-01'),
+        nextPostcardDate: new Date('2024-03-01').toISOString(),
         icon: '💩',
         progress: 20,
       },
@@ -261,7 +231,7 @@ export const getDashboardData = async (): Promise<DashboardData> => {
     timeline: [
       {
         id: '1',
-        date: new Date('2024-01-25'),
+        date: new Date('2024-01-25').toISOString(),
         type: 'milestone',
         title: 'Meilenstein erreicht!',
         description: 'Emma hat 3 Tage ohne Unfall geschafft! 🎉',
@@ -269,7 +239,7 @@ export const getDashboardData = async (): Promise<DashboardData> => {
       },
       {
         id: '2',
-        date: new Date('2024-01-22'),
+        date: new Date('2024-01-22').toISOString(),
         type: 'postcard',
         title: 'Postkarte versendet',
         description: 'Eine Glückwunschkarte ist unterwegs zu Emma!',
@@ -277,7 +247,7 @@ export const getDashboardData = async (): Promise<DashboardData> => {
       },
       {
         id: '3',
-        date: new Date('2024-01-20'),
+        date: new Date('2024-01-20').toISOString(),
         type: 'progress',
         title: 'Fortschritt gemacht',
         description: 'Emma wird immer sicherer beim Töpfchen benutzen.',
@@ -285,7 +255,7 @@ export const getDashboardData = async (): Promise<DashboardData> => {
       },
       {
         id: '4',
-        date: new Date('2024-01-15'),
+        date: new Date('2024-01-15').toISOString(),
         type: 'milestone',
         title: 'Erster Erfolg!',
         description: 'Emma hat zum ersten Mal das Töpfchen erfolgreich benutzt! 🎯',

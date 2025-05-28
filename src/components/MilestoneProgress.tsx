@@ -112,7 +112,7 @@ export default function MilestoneProgress({ milestones, onMilestoneClick }: Mile
                   <div className="mt-4 flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
                     <span>📅</span>
                     <span>
-                      Nächste Postkarte: {milestone.nextPostcardDate.toLocaleDateString('de-DE')}
+                      Nächste Postkarte: {new Date(milestone.nextPostcardDate).toLocaleDateString('de-DE')}
                     </span>
                   </div>
                 )}
@@ -122,7 +122,7 @@ export default function MilestoneProgress({ milestones, onMilestoneClick }: Mile
                   <div className="mt-4 flex items-center space-x-2 text-sm text-success-600 dark:text-success-400">
                     <span>🎉</span>
                     <span>
-                      Erreicht am {milestone.completedAt.toLocaleDateString('de-DE')}
+                      Erreicht am {new Date(milestone.completedAt).toLocaleDateString('de-DE')}
                     </span>
                   </div>
                 )}

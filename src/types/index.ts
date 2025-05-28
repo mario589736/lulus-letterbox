@@ -35,8 +35,8 @@ export interface Milestone {
   description: string;
   category: 'basic' | 'advanced' | 'special';
   isCompleted: boolean;
-  completedAt: Date | null;
-  nextPostcardDate: Date;
+  completedAt: string | null;
+  nextPostcardDate: string;
   icon: string;
   progress: number;
 }
@@ -91,7 +91,7 @@ export interface DashboardData {
 
 export interface TimelineEntry {
   id: string;
-  date: Date | string;
+  date: string;
   type: 'milestone' | 'postcard' | 'reaction' | 'progress';
   title: string;
   description: string;

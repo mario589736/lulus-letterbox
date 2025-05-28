@@ -1,5 +1,4 @@
 import { GetStaticProps } from 'next';
-import { useState } from 'react';
 import SEOHead from '../components/SEOHead';
 import DashboardHeader from '../components/DashboardHeader';
 import StatsOverview from '../components/StatsOverview';
@@ -16,12 +15,11 @@ interface HomePageProps {
 }
 
 export default function HomePage({ dashboardData, child }: HomePageProps) {
-  const [selectedMilestone, setSelectedMilestone] = useState<string | null>(null);
-  const { success, ToastRenderer } = useToast();
+  // const [selectedMilestone, setSelectedMilestone] = useState<string | null>(null);
+  const { success: showToast, ToastRenderer } = useToast();
 
-  const handleMilestoneClick = (milestoneId: string) => {
-    setSelectedMilestone(milestoneId);
-    success(
+  const handleMilestoneClick = (_milestoneId: string) => {
+    showToast(
       'Meilenstein ausgewählt!',
       'Du kannst hier später Fortschritte markieren.'
     );
