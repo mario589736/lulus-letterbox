@@ -1,0 +1,21 @@
+Generate a new Next.js 14 project in TypeScript with the following features:
+
+1. Hybrid rendering:
+   - One static page at `/` (getStaticProps) that shows a blog index fetched from a mock API.
+   - One server-rendered page at `/profile/[id]` (getServerSideProps) that fetches user data dynamically.
+2. SEO optimizations:
+   - Add `<Head>` tags on each page with dynamic title, description, and Open Graph metadata.
+   - Configure `next-sitemap.js` for sitemap.xml generation.
+3. Image optimization:
+   - Include one example of using `next/image` for a hero banner.
+4. Tailwind CSS setup:
+   - Install and configure Tailwind with a custom color palette.
+5. next.config.js:
+   - Enable the `appDir` and set `experimental: { serverComponents: true }`.
+   - Configure `images.domains` for external image loading.
+6. Scripts:
+   - `npm run dev`, `npm run build`, `npm run start`, and `npm run export` for full static export.
+7. README:
+   - Add instructions on how to run development, build, and export a fully static version.
+
+Generate all config files (`tsconfig.json`, `tailwind.config.js`, `postcss.config.js`), directory structure, and example components/pages.  

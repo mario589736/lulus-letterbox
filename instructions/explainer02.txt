@@ -1,0 +1,86 @@
+The app should be created in German for the German and Austrian market:
+
+It should be called "Lulu’s Letterbox"
+
+User Stories:
+
+1. Registrierung und Kinderprofil anlegen
+Als Mutter oder Vater
+möchte ich mich auf der PostMail-Magic-Webseite schnell und einfach registrieren und ein Profil für mein Kind anlegen
+um sicherzustellen, dass jede Postkarte personalisiert und gezielt auf die Vorlieben und den Namen meines Kindes zugeschnitten ist.
+
+Akzeptanzkriterien:
+
+Die Registrierung erfordert nur E-Mail, Passwort und Bestätigung per Link.
+
+Nach erfolgreicher Registrierung kann ich ein Kinderprofil anlegen mit:
+
+Name des Kindes (Vorname).
+
+Geburtsdatum (zur Altersvalidierung).
+
+Geschlecht (für Illustrations-Varianten).
+
+Lieblingsfarbe oder -motiv (optional, z. B. „Dinosaurier“, „Prinzessin“).
+
+Eine Bestätigungsmail informiert mich über den erfolgreichen Anlegungs- und Personalisierungsprozess.
+
+Das Profil lässt sich vor der ersten Bestellung jederzeit bearbeiten.
+
+2. Meilenstein-Auswahl und Versandrhythmus festlegen
+Als Mutter oder Vater
+möchte ich festlegen, welche Toiletten-Meilensteine wir in den ersten Postkarten feiern und in welchem Rhythmus (z. B. wöchentlich oder bei jedem 5. Erfolg)
+um die PostMail-Magic-Erfahrung an unseren Trainingsfortschritt und unsere Bedürfnisse anzupassen.
+
+Akzeptanzkriterien:
+
+Ich sehe eine Liste möglicher Meilensteine, z. B.:
+
+Erstes Mal ohne Windel.
+
+3 Tage hintereinander trocken.
+
+Kein nächtliches Malheur in einer Woche.
+
+Ich kann pro Meilenstein auswählen, ob er automatisch beim Erreichen (Self-Reporting) oder in festen Intervallen (z. B. wöchentlich) versendet werden soll.
+
+Ein Vorschau-Kalender zeigt mir die geplanten Versandtermine.
+
+Ich kann den Rhythmus nachträglich ändern und erhalte eine aktualisierte Versandübersicht.
+
+3. Postkarteninhalt und Story-Episoden prüfen
+Als Mutter oder Vater
+möchte ich vor Bestätigung meiner Bestellung jede Postkarte als Vorschau sehen (inklusive Text, Illustration und Name meines Kindes)
+um sicherzugehen, dass die Geschichten und Messages kindgerecht, fehlerfrei und liebevoll gestaltet sind.
+
+Akzeptanzkriterien:
+
+Zu jeder geplanten Sendung wird eine interaktive Vorschau angezeigt mit:
+
+Illustration von Lulu und Kacka.
+
+Personalisierter Begrüßungs- und Motivations-Text.
+
+Hinweis auf den jeweiligen Meilenstein.
+
+Ich kann einzelne Karten zurückweisen und Feedback (z. B. Rechtschreibkorrektur oder Wunsch zur Anpassung des Tons) hinterlassen.
+
+Nach Freigabe jeder Karte wird sie für den Druck markiert und in die Versandlogistik überführt.
+
+Ich erhalte eine E-Mail-Bestätigung, sobald alle Postkarten freigegeben sind.
+
+4. Postkartenempfang und Fortschritts-Dashboard nutzen
+Als Mutter oder Vater
+möchte ich nach Versand jeder Postkarte eine Benachrichtigung erhalten und meinen Fortschritt in einem einfachen Dashboard einsehen
+um sowohl den Postversand zu verfolgen als auch die Meilensteine und die aufgebauten Emotionen meines Kindes nachzuvollziehen.
+
+Akzeptanzkriterien:
+
+Nach Versand einer Postkarte erhalte ich per E-Mail oder Push-Benachrichtigung die Sendungsnummer und das geplante Zustelldatum.
+
+Im Eltern-Dashboard sehe ich eine Liste aller versendeten und kommenden Postkarten mit Status (z. B. „versandt“, „zugestellt“, „noch ausstehend“).
+
+Ich kann für jede zugestellte Karte kurz vermerken, wie das Kind reagiert hat (z. B. „vor Freude gesprungen“, „wollte sie direkt anschauen“).
+
+Das Dashboard zeigt eine visuelle Timeline der erreichten Meilensteine und der erhaltenen Postkarten, sodass ich den Trainingsfortschritt meines Kindes jederzeit überblicken kann.
+
